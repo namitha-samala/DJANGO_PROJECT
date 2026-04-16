@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- <div class="container mt-4">
+
+<h2>Dashboard</h2>
+
+<div class="row text-center">
+
+    <div class="col-md-4">
+        <div class="card shadow p-3">
+            <h5>Total Students</h5>
+            <h2>{{ total_students }}</h2>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow p-3">
+            <h5>Total Courses</h5>
+            <h2>{{ total_courses }}</h2>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow p-3">
+            <h5>Average Marks</h5>
+            <h2>{{ avg_marks }}</h2>
+        </div>
+    </div>
+
+</div>
+
+<br>
+
+<div class="card p-3">
+    <h5>Top Student</h5>
+
+    {% if top_student %}
+        <p>{{ top_student.name }}</p>
+    {% else %}
+        <p>No data</p>
+    {% endif %}
+</div>
+
+</div> -->
+
+
+
+
+<div class="container">
+
+<h2 class="mb-4">Dashboard</h2>
+<!-- 
+<div class="row g-4 text-center">
+
+    <div class="col-md-4">
+        <div class="card shadow p-4">
+            <h6 class="text-muted">Total Students</h6>
+            <h2 class="fw-bold">{{ total_students }}</h2>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow p-4">
+            <h6 class="text-muted">Total Courses</h6>
+            <h2 class="fw-bold">{{ total_courses }}</h2>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow p-4">
+            <h6 class="text-muted">Average Marks</h6>
+            <h2 class="fw-bold text-success">{{ avg_marks }}</h2>
+        </div>
+    </div>
+
+</div> -->
+
+
+
+
+
+<div class="row mt-4">
+
+    <div class="col-md-4">
+        <div class="card shadow dashboard-card">
+            <h5>Total Students</h5>
+            <h2>{{ total_students }}</h2>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow dashboard-card">
+            <h5>Total Courses</h5>
+            <h2>{{ total_courses }}</h2>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card shadow dashboard-card">
+            <h5>Average Marks</h5>
+            <h2 class="text-success">{{ avg_marks }}</h2>
+        </div>
+    </div>
+
+</div>
+
+
+
+</div>
+
+
+{% endblock %}
+
+
+
+
+</body>
+</html>
