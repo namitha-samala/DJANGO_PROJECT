@@ -74,35 +74,46 @@
 
     <thead class="table-dark">
         <tr>
-            <th>Name</th>
-            <th>Roll No</th>
-            <th>Email</th>
-            <th>Actions</th>
-        </tr>
+    <th>Name</th>
+    <th>Roll No</th>
+    <th>Email</th>
+    <th>Course</th>
+    <th>Department</th>
+    <th>Marks</th>
+    <th>Actions</th>
+</tr>
     </thead>
 
     <tbody>
         {% for item in student_data %}
         <tr>
-            <td>{{ item.student.name }}</td>
-            <td>{{ item.student.roll_no }}</td>
-            <td>{{ item.student.email }}</td>
-            <td>
+    <td>{{ item.student.name }}</td>
+    <td>{{ item.student.roll_no }}</td>
+    <td>{{ item.student.email }}</td>
 
-                <!-- Edit -->
-                <a href="/students/edit/{{ item.student.id }}/"
-                   class="btn btn-warning btn-sm">Edit</a>
+    <td>{{ item.student.course.name }}</td>
+    <td>{{ item.student.department.name }}</td>
 
-                <!-- Delete Button -->
-                <button class="btn btn-danger btn-sm"
-        data-bs-toggle="modal"
-        data-bs-target="#deleteModal"
-        onclick="setDeleteId('{{ item.student.id }}')">
-    Delete
-</button>
+    <td>
+        {% for m in item.marks %}
+            {{ m.marks }}
+        {% empty %}
+            No Marks
+        {% endfor %}
+    </td>
 
-            </td>
-        </tr>
+    <td>
+        <a href="/students/edit/{{ item.student.id }}/"
+           class="btn btn-warning btn-sm">Update</a>
+
+        <button class="btn btn-danger btn-sm"
+                data-bs-toggle="modal"
+                data-bs-target="#deleteModal"
+                onclick="setDeleteId('{{ item.student.id }}')">
+            Delete
+        </button>
+    </td>
+</tr>
         {% empty %}
         <tr>
             <td colspan="4">No students found</td>
