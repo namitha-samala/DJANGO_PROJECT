@@ -243,6 +243,8 @@ def dashboard(request):
         'top_student': top_student
     })
 
+from django.contrib.auth import logout
+
 def logout_view(request):
     logout(request)
     return redirect('/login/')
