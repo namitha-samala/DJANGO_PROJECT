@@ -4,6 +4,7 @@ from .models import Student, Course, Department, Subject, Marks
 from django.contrib.auth import logout
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.auth import authenticate, login
 
 # =======================
 # STUDENT LIST
@@ -269,3 +270,22 @@ def register(request):
         return redirect('/login/')
 
     return render(request, 'register.html')
+
+
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('/')  # go to dashboard
+        else:
+            return render(request, 'login.html', {'error': 'Invalid credentials'})
+
+    return render(request, 'login.html')
